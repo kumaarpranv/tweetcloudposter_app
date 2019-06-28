@@ -1,0 +1,100 @@
+<html>
+    <head>
+        <title> word cloud </title>
+        <link rel="stylesheet" href="../static/css/index.css" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    
+    <style>
+    
+    body{
+
+    background: url(./static/img/background.png);
+    }
+
+    .transp {
+    position: absolute;
+    bottom: 0;
+    background: rgb(0, 0, 0); /* Fallback color */
+    background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+    }
+
+    
+div#loading {
+    width: 500px;
+    height: 500px;
+    display: none;
+    background: url(./static/img/ajax-loader.gif) no-repeat center ; 
+  
+  background-size: 100px; 
+    
+    }
+    </style>
+    
+    </head>
+    <script type="text/javascript">
+    
+        function loading(){
+            $("#loading").show();
+            $("#content").hide();       
+        }
+    </script>
+ 
+    <body>
+            <center>
+            <div id="loading" ></div>
+            </center>
+            <div class="transp">
+                     <center>          
+                    <h3>Tweetcloud Poster generator <code style="color:#0072BC;">  by pranv </code></h3>
+                    
+                    
+                </center>
+            </div>
+            
+            
+        
+          <div id="content" class="container" style="background: white; height:100%;">
+                
+            <form action="/gener/" method="POST">
+                <br /><br />
+            <div class="form-group row">
+            <label class="col-sm-3 col-form-label">username: </label>
+            <div class="col-sm-3">
+            <input type="text" class="col-form-label" name="username" id="username" required/> 
+            </div>
+            </div>
+            
+            <div class="form-group row">
+            <label class="col-sm-3 col-form-label">number of tweets to dig: </label>
+            <div class="col-sm-3">
+            <input class="col-form-label" name="tweets" id="tweets"/> 
+            </div>
+            </div>
+
+            <div class="form-group row">
+            <label class="col-sm-3 col-form-label">img type: </label>
+            <div class="col-sm-3">
+            <select class="form-control" name="type" id="type">
+
+                <option value="tw">twitter header</option>
+                <option value="fbpc">FB header(PC)</option>
+                <option value="fbph">FB header(mobile)</option>
+                <option value="hdpc">wallpaper HD(PC)</option>
+                <option value="hdph">wallpaper HD(mobile)</option>
+
+            </select>
+            </div>
+            </div>
+            <br />
+            <input type="submit" class="btn btn-primary" value="submit" onclick="loading();" />
+        </form>
+        </div>
+    </body>
+</html>
